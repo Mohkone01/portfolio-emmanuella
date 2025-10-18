@@ -24,8 +24,8 @@ const Header = () => {
     }`}>
       <nav className="container-max">
         <div className="flex justify-between items-center py-4">
-          <div className="text-2xl font-bold text-gradient">
-            Emmanuella
+          <div className="text-xl sm:text-2xl font-bold text-gradient">
+            Campagne BDE
           </div>
           
           {/* Desktop Menu */}

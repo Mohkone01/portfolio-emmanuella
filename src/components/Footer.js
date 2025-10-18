@@ -23,7 +23,7 @@ const Footer = () => {
                   className="w-12 h-12 rounded-full"
                 />
                 <div>
-                  <h3 className="text-2xl font-bold text-gradient">Emmanuella</h3>
+                  <h3 className="text-2xl font-bold text-gradient">Campagne BDE</h3>
                   <p className="text-gray-400">Candidate BDE MIAGE 2025</p>
                 </div>
               </div>
@@ -142,7 +142,7 @@ const Footer = () => {
         <div className="container-max py-6">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <div className="flex items-center space-x-2 text-gray-400">
-              <span>© {currentYear} Emmanuella - Candidate BDE MIAGE. Fait avec passion pour notre filière.</span>
+              <span>© {currentYear} Campagne BDE - Emmanuella MIAGE. Fait avec passion pour notre filière.</span>
             </div>
             
             <button 
