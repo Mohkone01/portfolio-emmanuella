@@ -11,7 +11,7 @@ const About = () => {
             <div className="relative">
               <div className="w-64 h-64 sm:w-72 sm:h-72 md:w-80 md:h-80 rounded-2xl overflow-hidden shadow-xl">
                 <img 
-                  src="/Emma.jpg" 
+                  src="/Emma3.jpg" 
                   alt="Kouadio Amenan Marie Renee Emmanuella"
                   className="w-full h-full object-cover"
                 />
@@ -76,7 +76,7 @@ const About = () => {
 
             <div className="bg-gradient-to-r from-bde-blue/10 to-bde-green/10 p-6 rounded-xl border-l-4 border-bde-blue">
               <p className="text-lg font-medium text-gray-800 italic">
-                "Pour une MIAGE plus solidaire et dynamique"
+                "Pour une filière MIAGE plus solidaire et dynamique"
               </p>
             </div>
           </div>

@@ -55,9 +55,9 @@ const Hero = () => {
                   className="w-full h-full object-cover"
                 />
               </div>
-              {/* Decorative elements */}
-              <div className="absolute -top-4 -right-4 w-24 h-24 bg-bde-green rounded-full opacity-20 animate-pulse"></div>
-              <div className="absolute -bottom-4 -left-4 w-16 h-16 bg-bde-blue rounded-full opacity-30 animate-pulse delay-1000"></div>
+              {/* Decorative elements - Stabilisées sur mobile */}
+              <div className="hidden sm:block absolute -top-4 -right-4 w-24 h-24 bg-bde-green rounded-full opacity-20 animate-pulse"></div>
+              <div className="hidden sm:block absolute -bottom-4 -left-4 w-16 h-16 bg-bde-blue rounded-full opacity-30 animate-pulse delay-1000"></div>
             </div>
           </div>
         </div>

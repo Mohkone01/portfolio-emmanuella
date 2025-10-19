@@ -12,10 +12,10 @@ const Contact = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState('');
 
-  // Configuration EmailJS
-  const EMAILJS_SERVICE_ID = 'service_portfolio';
-  const EMAILJS_TEMPLATE_ID = 'template_contact';
-  const EMAILJS_PUBLIC_KEY = 'your_public_key';
+  // Configuration EmailJS avec vos vraies clés
+  const EMAILJS_SERVICE_ID = 'service_8nzxzbt';
+  const EMAILJS_TEMPLATE_ID = 'template_egatrsl';
+  const EMAILJS_PUBLIC_KEY = 'ShuAavZtGxdpoufMN';
 
   const handleChange = (e) => {
     setFormData({
@@ -41,12 +41,8 @@ const Contact = () => {
         reply_to: formData.email
       };
 
-      // Pour l'instant, on simule l'envoi car EmailJS nécessite une configuration
-      // En production, décommenter la ligne suivante et configurer EmailJS :
-      // await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, templateParams, EMAILJS_PUBLIC_KEY);
-      
-      // Simulation temporaire
-      await new Promise(resolve => setTimeout(resolve, 2000));
+      // Envoi réel avec EmailJS
+      await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, templateParams, EMAILJS_PUBLIC_KEY);
       
       setIsSubmitted(true);
       setFormData({ name: '', email: '', message: '' });

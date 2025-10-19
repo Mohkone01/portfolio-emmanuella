@@ -35,7 +35,7 @@ const Footer = () => {
               
               <div className="flex space-x-4">
                 <a 
-                  href="mailto:emmanuella@miage.com" 
+                  href="mailto:emmanuellabde@gmail.com" 
                   className="w-10 h-10 bg-gray-800 hover:bg-gray-700 rounded-full flex items-center justify-center transition-colors duration-300"
                   aria-label="Email"
                 >
@@ -126,7 +126,7 @@ const Footer = () => {
                   Candidate BDE 2025
                 </p>
                 <a 
-                  href="mailto:emmanuella@miage.com" 
+                  href="mailto:emmanuellabde@gmail.com" 
                   className="text-bde-green hover:text-bde-light-green transition-colors duration-300"
                 >
                   emmanuellabde@gmail.com
