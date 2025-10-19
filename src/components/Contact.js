@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Mail, User, MessageSquare, Send, CheckCircle, AlertCircle } from 'lucide-react';
 import emailjs from '@emailjs/browser';
+import { useScrollAnimation } from '../hooks/useScrollAnimation';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -11,6 +12,10 @@ const Contact = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState('');
+
+  // Hooks d'animation - doivent être appelés au niveau supérieur
+  const [headerRef, headerVisible] = useScrollAnimation(0.2);
+  const [formRef, formVisible] = useScrollAnimation(0.2);
 
   // Configuration EmailJS avec vos vraies clés
   const EMAILJS_SERVICE_ID = 'service_8nzxzbt';
@@ -85,7 +90,10 @@ const Contact = () => {
       <div className="container-max">
         <div className="max-w-4xl mx-auto">
           {/* Header */}
-          <div className="text-center mb-16">
+          <div 
+            ref={headerRef}
+            className={`text-center mb-16 fade-in-up ${headerVisible ? 'animate' : ''}`}
+          >
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
               Envie de <span className="text-gradient">soutenir mon projet</span> ?
             </h2>
@@ -95,7 +103,10 @@ const Contact = () => {
             </p>
           </div>
 
-          <div className="grid lg:grid-cols-2 gap-8 lg:gap-12">
+          <div 
+            ref={formRef}
+            className={`grid lg:grid-cols-2 gap-8 lg:gap-12 fade-in-up ${formVisible ? 'animate' : ''}`}
+          >
             {/* Contact Form */}
             <div className="bg-white rounded-2xl p-6 sm:p-8 shadow-xl">
               <h3 className="text-2xl font-bold text-gray-900 mb-6">

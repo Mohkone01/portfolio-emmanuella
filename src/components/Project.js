@@ -1,10 +1,15 @@
 import React, { useState } from 'react';
 import { Users, BookOpen, Calendar, Mic, Lightbulb, ArrowRight } from 'lucide-react';
 import Modal from './Modal';
+import { useScrollAnimation, useScrollAnimationWithDelay } from '../hooks/useScrollAnimation';
 
 const Project = () => {
   const [selectedProject, setSelectedProject] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
+
+  // Hooks d'animation - doivent être appelés au niveau supérieur
+  const [headerRef, headerVisible] = useScrollAnimation(0.2);
+  const [gridRef, gridVisible] = useScrollAnimationWithDelay(300, 0.1);
 
   const projects = [
     {
@@ -143,7 +148,10 @@ const Project = () => {
     <section id="projet" className="section-padding bg-gradient-to-br from-gray-50 to-blue-50">
       <div className="container-max">
         {/* Header */}
-        <div className="text-center mb-16">
+        <div 
+          ref={headerRef}
+          className={`text-center mb-16 fade-in-up ${headerVisible ? 'animate' : ''}`}
+        >
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
             Mes idées pour un <span className="text-gradient">BDE plus dynamique</span>
           </h2>
@@ -154,7 +162,10 @@ const Project = () => {
         </div>
 
         {/* Projects Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-12">
+        <div 
+          ref={gridRef}
+          className={`grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-12 fade-in-up ${gridVisible ? 'animate' : ''}`}
+        >
           {projects.map((project, index) => {
             const IconComponent = project.icon;
             const isBlue = project.color === 'blue';
@@ -162,7 +173,7 @@ const Project = () => {
             return (
               <div 
                 key={index}
-                className="group bg-white rounded-2xl p-6 sm:p-8 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100"
+                className="group bg-white rounded-2xl p-6 sm:p-8 shadow-lg card-hover border border-gray-100"
               >
                 <div className={`w-16 h-16 rounded-full flex items-center justify-center mb-6 ${
                   isBlue ? 'bg-blue-100 group-hover:bg-blue-200' : 'bg-green-100 group-hover:bg-green-200'

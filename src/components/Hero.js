@@ -32,13 +32,13 @@ const Hero = () => {
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
               <button 
                 onClick={scrollToAbout}
-                className="btn-primary"
+                className="btn-primary btn-hover"
               >
                 Découvrez mon projet
               </button>
               <button 
-                onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-                className="btn-secondary"
+                onClick={scrollToAbout}
+                className="btn-secondary btn-hover"
               >
                 Me soutenir
               </button>

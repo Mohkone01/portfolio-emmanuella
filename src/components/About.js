@@ -1,15 +1,23 @@
 import React from 'react';
 import { GraduationCap, Heart, Users } from 'lucide-react';
+import { useScrollAnimation, useScrollAnimationWithDelay } from '../hooks/useScrollAnimation';
 
 const About = () => {
+  const [imageRef, imageVisible] = useScrollAnimation(0.2);
+  const [contentRef, contentVisible] = useScrollAnimation(0.2);
+  const [valuesRef, valuesVisible] = useScrollAnimationWithDelay(200, 0.2);
+
   return (
     <section id="apropos" className="section-padding bg-white">
       <div className="container-max">
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
           {/* Image */}
           <div className="order-2 lg:order-1 flex justify-center">
-            <div className="relative">
-              <div className="w-64 h-64 sm:w-72 sm:h-72 md:w-80 md:h-80 rounded-2xl overflow-hidden shadow-xl">
+            <div 
+              ref={imageRef}
+              className={`relative scale-in ${imageVisible ? 'animate' : ''}`}
+            >
+              <div className="w-72 h-72 sm:w-80 sm:h-80 md:w-96 md:h-96 lg:w-[420px] lg:h-[420px] rounded-2xl overflow-hidden shadow-2xl card-hover">
                 <img 
                   src="/Emma3.jpg" 
                   alt="Kouadio Amenan Marie Renee Emmanuella"
@@ -28,9 +36,12 @@ const About = () => {
           </div>
 
           {/* Content */}
-          <div className="order-1 lg:order-2 space-y-8">
+          <div 
+            ref={contentRef}
+            className={`order-1 lg:order-2 space-y-8 fade-in-right ${contentVisible ? 'animate' : ''}`}
+          >
             <div>
-              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-8">
                 À propos de <span className="text-gradient">moi</span>
               </h2>
               
@@ -54,7 +65,10 @@ const About = () => {
             </div>
 
             {/* Values */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6">
+            <div 
+              ref={valuesRef}
+              className={`grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 fade-in-up ${valuesVisible ? 'animate' : ''}`}
+            >
               <div className="text-center p-6 bg-blue-50 rounded-xl">
                 <GraduationCap className="w-8 h-8 text-bde-blue mx-auto mb-3" />
                 <h3 className="font-semibold text-bde-blue mb-2">Excellence</h3>
