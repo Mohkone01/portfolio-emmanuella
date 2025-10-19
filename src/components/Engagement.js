@@ -1,7 +1,13 @@
 import React from 'react';
 import { Quote, Target, Heart, Star } from 'lucide-react';
+import { useScrollAnimation, useScrollAnimationWithDelay } from '../hooks/useScrollAnimation';
 
 const Engagement = () => {
+  const [titleRef, titleVisible] = useScrollAnimation(0.2);
+  const [quoteRef, quoteVisible] = useScrollAnimation(0.3);
+  const [pointsRef, pointsVisible] = useScrollAnimationWithDelay(300, 0.2);
+  const [visualRef, visualVisible] = useScrollAnimation(0.2);
+
   return (
     <section id="engagement" className="section-padding bg-white">
       <div className="container-max">
@@ -9,12 +15,18 @@ const Engagement = () => {
           {/* Content */}
           <div className="space-y-8">
             <div>
-              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-8">
+              <h2 
+                ref={titleRef}
+                className={`text-4xl md:text-5xl font-bold text-gray-900 mb-8 fade-in-left ${titleVisible ? 'animate' : ''}`}
+              >
                 Mon <span className="text-gradient">engagement</span>
               </h2>
               
               {/* Main Quote */}
-              <div className="relative bg-gradient-to-r from-bde-blue/5 to-bde-green/5 p-6 sm:p-8 rounded-2xl border-l-4 border-bde-blue mb-8">
+              <div 
+                ref={quoteRef}
+                className={`relative bg-gradient-to-r from-bde-blue/5 to-bde-green/5 p-6 sm:p-8 rounded-2xl border-l-4 border-bde-blue mb-8 quote-special ${quoteVisible ? 'animate' : ''}`}
+              >
                 <Quote className="w-12 h-12 text-bde-blue/30 absolute top-4 left-4" />
                 <blockquote className="text-xl md:text-2xl font-medium text-gray-800 italic leading-relaxed pl-8">
                   "Je ne promets pas tout changer, mais je m'engage à faire de mon mieux 
@@ -31,7 +43,10 @@ const Engagement = () => {
             </div>
 
             {/* Engagement Points */}
-            <div className="space-y-6">
+            <div 
+              ref={pointsRef}
+              className={`space-y-6 fade-in-up ${pointsVisible ? 'animate' : ''}`}
+            >
               <div className="flex items-start space-x-4">
                 <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0">
                   <Target className="w-6 h-6 text-bde-blue" />
@@ -65,7 +80,10 @@ const Engagement = () => {
           </div>
 
           {/* Visual Element */}
-          <div className="flex justify-center lg:justify-end">
+          <div 
+            ref={visualRef}
+            className={`flex justify-center lg:justify-end scale-in ${visualVisible ? 'animate' : ''}`}
+          >
             <div className="relative">
               {/* Main circle with gradient */}
               <div className="w-80 h-80 md:w-96 md:h-96 rounded-full bg-gradient-to-br from-bde-blue/20 to-bde-green/20 flex items-center justify-center relative overflow-hidden">
@@ -82,14 +100,14 @@ const Engagement = () => {
                   <p className="text-bde-green font-semibold">Ensemble vers l'excellence</p>
                 </div>
                 
-                {/* Floating elements */}
-                <div className="absolute top-8 right-8 w-16 h-16 bg-white/80 rounded-full flex items-center justify-center shadow-lg animate-pulse">
+                {/* Floating elements - Stabilisés sur mobile */}
+                <div className="floating-element absolute top-8 right-8 w-16 h-16 bg-white/80 rounded-full flex items-center justify-center shadow-lg animate-pulse">
                   <Target className="w-8 h-8 text-bde-blue" />
                 </div>
-                <div className="absolute bottom-8 left-8 w-16 h-16 bg-white/80 rounded-full flex items-center justify-center shadow-lg animate-pulse delay-1000">
+                <div className="floating-element absolute bottom-8 left-8 w-16 h-16 bg-white/80 rounded-full flex items-center justify-center shadow-lg animate-pulse delay-1000">
                   <Heart className="w-8 h-8 text-bde-green" />
                 </div>
-                <div className="absolute top-1/2 left-4 w-12 h-12 bg-white/80 rounded-full flex items-center justify-center shadow-lg animate-pulse delay-2000">
+                <div className="floating-element absolute top-1/2 left-4 w-12 h-12 bg-white/80 rounded-full flex items-center justify-center shadow-lg animate-pulse delay-2000">
                   <Star className="w-6 h-6 text-bde-blue" />
                 </div>
               </div>
