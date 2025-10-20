@@ -40,7 +40,10 @@ const Header = () => {
               Mon projet
             </button>
             <button onClick={() => scrollToSection('engagement')} className="text-gray-700 hover:text-bde-blue transition-colors">
-              Engagement
+              Mon engagement
+            </button>
+            <button onClick={() => scrollToSection('galerie')} className="text-gray-700 hover:text-bde-blue transition-colors">
+              Galerie
             </button>
             <button onClick={() => scrollToSection('contact')} className="text-gray-700 hover:text-bde-blue transition-colors">
               Contact
@@ -71,6 +74,9 @@ const Header = () => {
               </button>
               <button onClick={() => scrollToSection('engagement')} className="block w-full text-left px-4 py-2 text-gray-700 hover:text-bde-blue">
                 Engagement
+              </button>
+              <button onClick={() => scrollToSection('galerie')} className="block w-full text-left px-4 py-2 text-gray-700 hover:text-bde-blue">
+                Galerie
               </button>
               <button onClick={() => scrollToSection('contact')} className="block w-full text-left px-4 py-2 text-gray-700 hover:text-bde-blue">
                 Contact

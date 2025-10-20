@@ -4,6 +4,7 @@ import Hero from './components/Hero';
 import About from './components/About';
 import Project from './components/Project';
 import Engagement from './components/Engagement';
+import Gallery from './components/Gallery';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 
@@ -15,6 +16,7 @@ function App() {
       <About />
       <Project />
       <Engagement />
+      <Gallery />
       <Contact />
       <Footer />
     </div>
